@@ -27,16 +27,13 @@ public class PerfectNumber {
     }
     public static int solve(int A) {
         int sum = 1; // Start with 1 since it's a divisor for all numbers > 1
-
         if (A <= 1) return 0; // Edge case
-
         for (int i = 2; i <= Math.sqrt(A); i++) {
             if (A % i == 0) {
                 sum += i;
                 if (i != A / i) sum += A / i; // Avoid double counting
             }
         }
-
         return sum == A ? 1 : 0; // Check for perfect number
     }
 }

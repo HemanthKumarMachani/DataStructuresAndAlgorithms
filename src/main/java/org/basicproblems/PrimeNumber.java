@@ -69,5 +69,4 @@ public class PrimeNumber {
         }
         return true;
     }
-
 }
