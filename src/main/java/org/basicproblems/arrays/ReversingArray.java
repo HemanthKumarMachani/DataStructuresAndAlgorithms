@@ -11,6 +11,9 @@ public class ReversingArray {
         System.out.println("Reversing in range");
         List<Integer> resultList2 = reversingInRange(list, 1, 4);
         System.out.println(resultList2);
+        System.out.println("Reversing K times: ");
+        List<Integer> resultListKTimes = reverseKTimes(list,9);
+        System.out.println(resultListKTimes);
     }
 
     //Reversing the entire array
@@ -39,6 +42,75 @@ public class ReversingArray {
         }
         return A;
     }
+    /*
+Array Rotation:
+Problem Description
+
+Given an integer array A of size N and an integer B, you have to return the same array after rotating it B times towards the right.
+
+
+Problem Constraints
+
+1 <= N <= 105
+1 <= A[i] <=109
+1 <= B <= 109
+
+
+Input Format
+
+The first argument given is the integer array A.
+The second argument given is the integer B.
+
+
+Output Format
+
+Return the array A after rotating it B times to the right
+
+
+Example Input
+
+Input 1:
+
+A = [1, 2, 3, 4]
+B = 2
+Input 2:
+
+A = [2, 5, 6]
+B = 1
+
+
+Example Output
+
+Output 1:
+
+[3, 4, 1, 2]
+Output 2:
+
+[6, 2, 5]
+
+
+Example Explanation
+
+Explanation 1:
+
+Rotate towards the right 2 times - [1, 2, 3, 4] => [4, 1, 2, 3] => [3, 4, 1, 2]
+Explanation 2:
+
+Rotate towards the right 1 time - [2, 5, 6] => [6, 2, 5]
+     */
+    //Brute force approach
+public static List<Integer> reverseKTimes(List<Integer> A, int k) {
+    int start = 0;
+    int end = A.size() - 1;
+    for(int i=0; i<k%2; i++){ //rotating only remainder number of times, instead of K times.
+        int temp = A.get(end);
+        for(int j = end; j>=1; j--){
+            A.set(j,A.get(j-1));
+        }
+        A.set(i,temp);
+    }
+    return A;
+}
 }
 
 
