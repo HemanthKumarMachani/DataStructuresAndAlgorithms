@@ -12,7 +12,7 @@ public class ReversingArray {
         List<Integer> resultList2 = reversingInRange(list, 1, 4);
         System.out.println(resultList2);
         System.out.println("Reversing K times: ");
-        List<Integer> resultListKTimes = reverseKTimes(list,9);
+        List<Integer> resultListKTimes = reverseKTimes(list,1);
         System.out.println(resultListKTimes);
     }
 
@@ -102,12 +102,12 @@ Rotate towards the right 1 time - [2, 5, 6] => [6, 2, 5]
 public static List<Integer> reverseKTimes(List<Integer> A, int k) {
     int start = 0;
     int end = A.size() - 1;
-    for(int i=0; i<k%2; i++){ //rotating only remainder number of times, instead of K times.
+    for(int i=0; i<k; i++){ //rotating only remainder number of times, instead of K times.
         int temp = A.get(end);
-        for(int j = end; j>=1; j--){
+        for(int j = end-1; j>=1; j--){
             A.set(j,A.get(j-1));
         }
-        A.set(i,temp);
+        A.set(0,temp);
     }
     return A;
 }
