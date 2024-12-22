@@ -12,8 +12,13 @@ public class ReversingArray {
         List<Integer> resultList2 = reversingInRange(list, 1, 4);
         System.out.println(resultList2);
         System.out.println("Reversing K times: ");
-        List<Integer> resultListKTimes = reverseKTimes(list,2);
+        List<Integer> smallInput = Arrays.asList(1,2,3,4);
+        List<Integer> resultListKTimes = reverseKTimes(list,8);
         System.out.println(resultListKTimes);
+        System.out.println("Reversing K times O(N) approach: ");
+        List<Integer> inputList = Arrays.asList(13,14,15,16,17,18);
+        List<Integer> ouputList = reverseArrayKTimesON(inputList,2 );
+        System.out.println("outputLIst of O(N) approach: "+ouputList);
     }
 
     //Reversing the entire array
@@ -100,16 +105,25 @@ Rotate towards the right 1 time - [2, 5, 6] => [6, 2, 5]
      */
     //Brute force approach
 public static List<Integer> reverseKTimes(List<Integer> A, int k) {
-    int start = 0;
     int end = A.size() - 1;
     int n = k%end;
     for(int i=0; i<n; i++){ //rotating only remainder number of times, instead of K times.
-        int temp = A.get(end-1);
-        for(int j = end-1; j>=1; j--){
+        int temp = A.get(end);
+        for(int j = end; j>=1; j--){
             A.set(j,A.get(j-1));
         }
         A.set(0,temp);
     }
+    return A;
+}
+
+//reversing K times optimized approach O(N)
+public static List<Integer> reverseArrayKTimesON(List<Integer> A, int k) {
+    int n = A.size() - 1;
+    k = k%n;
+    reversingInRange(A, 0, n);
+    reversingInRange(A,0,k-1);
+    reversingInRange(A,k,n-1);
     return A;
 }
 }
