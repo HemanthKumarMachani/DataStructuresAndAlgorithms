@@ -25,6 +25,17 @@ public class RangeSumQuery {
     //A prefix sum is noting but a cumulative sum of sequence of elements of the input list.
     //Generated using pf[i] = p[i-1] + input[i] which means current element of prefix array
     //is obtained by the sum of previous element in prefix array and current element in input array.
+    /**
+     * Computes the range sum for each query in the given 2D array of queries.
+     * The sum of elements from index L to R is efficiently calculated using the prefix sum array:
+     * - If L == 0, result = prefix[R]
+     * - Otherwise, result = prefix[R] - prefix[L-1]
+     *
+     * @param inputList The input list of integers.
+     * @param queries A 2D list where each row represents a query [L, R].
+     * @return A list of integers representing the sum for each query.
+     * Time Complexity: O(N + M), where N is the size of the input list, and M is the number of queries.
+     */
     public static List<Integer> prefixSumOfList(List<Integer> list) {
         List<Integer> prefList = new ArrayList<>();
         if (list == null || list.isEmpty()) {
