@@ -56,9 +56,9 @@ public class RangeSumQuery {
         List<Integer> prefList = prefixSumOfList(inputList);
         System.out.println("prefix sum output inside rangeSum: " + prefList);
         int m = queries.size();
-        for (int i = 0; i < m; i++) {
-            int left = queries.get(i).get(0);
-            int right = queries.get(i).get(1);
+        for (List<Integer> query : queries) {
+            int left = query.get(0);
+            int right = query.get(1);
             if (left == 0) resultList.add(prefList.get(right));
             else resultList.add(prefList.get(right) - prefList.get(left - 1));
         }
