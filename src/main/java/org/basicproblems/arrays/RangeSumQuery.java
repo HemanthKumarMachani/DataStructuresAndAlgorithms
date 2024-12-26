@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RangeSumQuery {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(1, 2, 3, 4);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4,5,6,7);
         List<Integer> resultList = prefixSumOfList(list);
         System.out.println("prefix sum of input list:" + resultList);
         List<List<Integer>> sampleQueries = new ArrayList<>();
@@ -19,6 +19,8 @@ public class RangeSumQuery {
         sampleQueries.get(1).add(3);
         List<Integer> rangeSumQueryOutput = rangeSumQuery(list, sampleQueries);
         System.out.println("range sum query output:" + rangeSumQueryOutput);
+        List<Integer> evenPrefixSum = evenPrefixSumOfList(list);
+        System.out.println("even prefix sum of input list:" + evenPrefixSum);
     }
 
     //Generating prefix sum array of the input array.
@@ -61,6 +63,17 @@ public class RangeSumQuery {
             int right = query.get(1);
             if (left == 0) resultList.add(prefList.get(right));
             else resultList.add(prefList.get(right) - prefList.get(left - 1));
+        }
+        return resultList;
+    }
+    //sum of even element prefix sum
+    public static List<Integer> evenPrefixSumOfList(List<Integer> inputList) {
+        List<Integer> resultList = new ArrayList<>();
+        if (inputList == null || inputList.isEmpty()) { return resultList; }
+        resultList.add(inputList.getFirst());
+        for (int i=1; i<inputList.size(); i++) {
+            if (i % 2 == 0) resultList.add(resultList.get(i-1)+ inputList.get(i));
+            else resultList.add(resultList.get(i-1));
         }
         return resultList;
     }
