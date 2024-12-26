@@ -21,6 +21,8 @@ public class RangeSumQuery {
         System.out.println("range sum query output:" + rangeSumQueryOutput);
         List<Integer> evenPrefixSum = evenPrefixSumOfList(list);
         System.out.println("even prefix sum of input list:" + evenPrefixSum);
+        List<Integer> oddPrefixSum = oddPrefixSumOfList(list);
+        System.out.println("odd prefix sum of input list:" + oddPrefixSum);
     }
 
     //Generating prefix sum array of the input array.
@@ -73,6 +75,17 @@ public class RangeSumQuery {
         resultList.add(inputList.getFirst());
         for (int i=1; i<inputList.size(); i++) {
             if (i % 2 == 0) resultList.add(resultList.get(i-1)+ inputList.get(i));
+            else resultList.add(resultList.get(i-1));
+        }
+        return resultList;
+    }
+    //sum of odd elements prefix sum
+    public static List<Integer> oddPrefixSumOfList(List<Integer> inputList) {
+        List<Integer> resultList = new ArrayList<>();
+        if (inputList == null || inputList.isEmpty()) { return resultList; }
+        resultList.add(inputList.getFirst());
+        for (int i=1; i<inputList.size(); i++) {
+            if (i % 2 != 0) resultList.add(resultList.get(i-1)+ inputList.get(i));
             else resultList.add(resultList.get(i-1));
         }
         return resultList;
