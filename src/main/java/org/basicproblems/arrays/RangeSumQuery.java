@@ -90,6 +90,19 @@ public class RangeSumQuery {
         }
         return resultList;
     }
+    /**
+     * Finds the count of special indices in the array.
+     * A special index is an index such that removing the element at this index
+     * makes the sum of even-indexed and odd-indexed elements equal.
+     *
+     * Problem Constraints:
+     * 1 <= N <= 10^5
+     * -10^5 <= A[i] <= 10^5
+     * Sum of all elements of A <= 10^9
+     *
+     * @param inputList Input list of integers.
+     * @return Count of special indices.
+     */
     //special index. Special Index ia an indexing after removing which sum of even-indexed elements is equal
     //to sum of odd-indexed elements // return count of special indexes
     public static int specialIndex(List<Integer> inputList) {
