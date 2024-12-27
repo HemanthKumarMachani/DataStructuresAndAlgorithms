@@ -68,6 +68,13 @@ public class RangeSumQuery {
         }
         return resultList;
     }
+    /**
+     * Computes the even-index prefix sum for the input list.
+     * For each element at even indices, sums the elements cumulatively.
+     *
+     * @param inputList Input list of integers.
+     * @return List of even-index prefix sums.
+     */
     //sum of even element prefix sum
     public static List<Integer> evenPrefixSumOfList(List<Integer> inputList) {
         List<Integer> resultList = new ArrayList<>();
@@ -79,6 +86,13 @@ public class RangeSumQuery {
         }
         return resultList;
     }
+    /**
+     * Computes the odd-index prefix sum for the input list.
+     * For each element at odd indices, sums the elements cumulatively.
+     *
+     * @param inputList Input list of integers.
+     * @return List of odd-index prefix sums.
+     */
     //sum of odd elements prefix sum
     public static List<Integer> oddPrefixSumOfList(List<Integer> inputList) {
         List<Integer> resultList = new ArrayList<>();
