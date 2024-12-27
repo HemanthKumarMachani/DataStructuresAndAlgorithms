@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RangeSumQuery {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(1, 2, 3, 4,5,6,7);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4);//,5,6,7); {1,3,6,10} //{1,1,4,4} //{1,3,3,7}
         List<Integer> resultList = prefixSumOfList(list);
         System.out.println("prefix sum of input list:" + resultList);
         List<List<Integer>> sampleQueries = new ArrayList<>();
@@ -89,5 +89,27 @@ public class RangeSumQuery {
             else resultList.add(resultList.get(i-1));
         }
         return resultList;
+    }
+    //special index. Special Index ia an indexing after removing which sum of even-indexed elements is equal
+    //to sum of odd-indexed elements // return count of special indexes
+    public static int specialIndex(List<Integer> inputList) {
+        if (inputList == null || inputList.isEmpty()) { return -1; }
+        int count =0;
+        int n = inputList.size();
+        List<Integer> evenPrefixSum = evenPrefixSumOfList(inputList);
+        List<Integer> oddPrefixSum = oddPrefixSumOfList(inputList);
+        for (int i=0; i<inputList.size(); i++) {
+            int evenSum = 0;
+            int oddSum = 0;
+            if(i==0){
+                evenSum = oddPrefixSum.get(n-1)-oddPrefixSum.get(i);
+                oddSum = evenPrefixSum.get(n-1)-evenPrefixSum.get(i);
+            }else{
+                evenSum = evenPrefixSum.get(i-1)+(oddPrefixSum.get(n-1)-oddPrefixSum.get(i));
+                oddSum = oddPrefixSum.get(i-1)+(evenPrefixSum.get(n-1)-evenPrefixSum.get(i));
+            }
+            if(evenSum == oddSum){ count++; }
+        }
+        return count;
     }
 }
