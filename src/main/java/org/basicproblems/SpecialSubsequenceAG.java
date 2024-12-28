@@ -6,7 +6,6 @@ public class SpecialSubsequenceAG {
         int result = solve(input);
         System.out.println("Result: " + result);
     }
-
     /*
     You have given a string A having Uppercase English letters.
 
