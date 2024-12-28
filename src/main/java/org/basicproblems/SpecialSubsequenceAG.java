@@ -2,8 +2,9 @@ package org.basicproblems;
 
 public class SpecialSubsequenceAG {
     public static void main(String[] args) {
-
-
+        String input = "ABCGAG";
+        int result = solve(input);
+        System.out.println("Result: " + result);
     }
 
     /*
