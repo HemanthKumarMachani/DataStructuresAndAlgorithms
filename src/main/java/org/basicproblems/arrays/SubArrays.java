@@ -14,8 +14,9 @@ public class SubArrays {
         for(int i=0; i<input.size(); i++){
             for(int j=i+1; j<input.size(); j++){
                 for(int k=i; k<j; k++){
-                    System.out.println(input.get(k));
+                    System.out.print(input.get(k));
                 }
+                System.out.println();
             }
         }
         return input;
