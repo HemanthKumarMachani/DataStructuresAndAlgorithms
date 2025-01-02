@@ -134,4 +134,26 @@ All the subarrays of the array are returned. There are a total of 10 subarrays.
         }
         return subArrays;
     }
+    public static int closetMinMaxSubArray(List<Integer> nums) {
+        int max = nums.stream().max(Integer::compareTo).get();
+        int min = nums.stream().min(Integer::compareTo).get();
+        int min_index =-1;
+        int max_index =-1;
+        int ans=0;
+        if(min==max){ return 0;}
+        for (int i =nums.size()-1; i >= 0; i--) {
+            if(nums.get(i)==min){
+                min_index = i;
+                if(max_index !=-1){
+                    ans = Math.min(ans,max_index-min_index+1);
+                }
+            } else if (nums.get(i)==max) {
+                max_index=i;
+                if(min_index !=-1){
+                    ans = Math.min(ans,max_index-min_index+1);
+                }
+            }
+        }
+        return ans;
+    }
 }
