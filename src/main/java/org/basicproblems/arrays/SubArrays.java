@@ -15,6 +15,9 @@ public class SubArrays {
         System.out.println("printing sub arrays in range: " + subArrayInRange);
         List<List<Integer>> subArrays = generateAllSubArrays(input);
         System.out.println("Printing sub arrays: " + subArrays);
+        List<Integer> nums = Arrays.asList(3,6,2,9,6,4);
+        System.out.println("Closest MinMax: "+ closetMinMaxSubArray(nums));
+
     }
 
     public static List<Integer> printSubArrays(List<Integer> input) {
@@ -139,7 +142,7 @@ All the subarrays of the array are returned. There are a total of 10 subarrays.
         int min = nums.stream().min(Integer::compareTo).get();
         int min_index =-1;
         int max_index =-1;
-        int ans=0;
+        int ans=nums.size();
         if(min==max){ return 0;}
         for (int i =nums.size()-1; i >= 0; i--) {
             if(nums.get(i)==min){
@@ -150,7 +153,7 @@ All the subarrays of the array are returned. There are a total of 10 subarrays.
             } else if (nums.get(i)==max) {
                 max_index=i;
                 if(min_index !=-1){
-                    ans = Math.min(ans,max_index-min_index+1);
+                    ans = Math.min(ans,min_index-max_index+1);
                 }
             }
         }
