@@ -2,6 +2,7 @@ package org.basicproblems.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SubArrays {
@@ -158,5 +159,19 @@ All the subarrays of the array are returned. There are a total of 10 subarrays.
             }
         }
         return ans;
+    }
+    public static List<Integer> leaderInAnArray(List<Integer> input) {
+        List<Integer> leaders = new ArrayList<>();
+        int n = input.size();
+        int maxRight = input.get(n-1);
+        leaders.add(maxRight);
+        for(int i=n-2; i>=0; i--) {
+            if(input.get(i)>maxRight){
+                maxRight = input.get(i);
+                leaders.add(maxRight);
+            }
+        }
+        Collections.reverse(leaders);
+        return leaders;
     }
 }
