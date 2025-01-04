@@ -8,17 +8,17 @@ import java.util.List;
 public class SubArrays {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 2, 3, 4);
-        List<Integer> input = Arrays.asList(1,2,3,4,5,6,7,8,9,10,10,9,8,7,6,5,4,3,2,1);
+        List<Integer> input = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
         System.out.println("Printing sub arrays: ");
         printSubArrays(list);
         System.out.println("Returning sub arrays in range: ");
-        List<Integer> subArrayInRange = subArrayInRange(input,9,13);
+        List<Integer> subArrayInRange = subArrayInRange(input, 9, 13);
         System.out.println("printing sub arrays in range: " + subArrayInRange);
         List<List<Integer>> subArrays = generateAllSubArrays(input);
         System.out.println("Printing sub arrays: " + subArrays);
-        List<Integer> nums = Arrays.asList(3,6,2,9,6,4);
-        System.out.println("Closest MinMax: "+ closetMinMaxSubArray(nums));
-        List<Integer> randomInput = Arrays.asList(12,4,5,6,1,17,19,17,15,14,7,6);
+        List<Integer> nums = Arrays.asList(3, 6, 2, 9, 6, 4);
+        System.out.println("Closest MinMax: " + closetMinMaxSubArray(nums));
+        List<Integer> randomInput = Arrays.asList(12, 4, 5, 6, 1, 17, 19, 17, 15, 14, 7, 6);
         List<Integer> result = leadersInAnArray(randomInput);
         System.out.println("Leaders: " + result);
 
@@ -35,48 +35,49 @@ public class SubArrays {
         }
         return input;
     }
+
     /**
      * Problem Description:
-     *
+     * <p>
      * Given an array A of length N, return the subarray from B to C.
-     *
+     * <p>
      * Problem Constraints:
      * - 1 <= N <= 10^5
      * - 1 <= A[i] <= 10^9
      * - 0 <= B <= C < N
-     *
+     * <p>
      * Input Format:
      * - The first argument is an array of integers A.
      * - The second and third arguments are integers B and C.
-     *
+     * <p>
      * Output Format:
      * - Return a subarray of A from index B to C (both inclusive).
-     *
+     * <p>
      * Example Input:
      * Input 1:
-     *  A = [4, 3, 2, 6]
-     *  B = 1
-     *  C = 3
+     * A = [4, 3, 2, 6]
+     * B = 1
+     * C = 3
      * Input 2:
-     *  A = [4, 2, 2]
-     *  B = 0
-     *  C = 1
-     *
+     * A = [4, 2, 2]
+     * B = 0
+     * C = 1
+     * <p>
      * Example Output:
      * Output 1:
-     *  [3, 2, 6]
+     * [3, 2, 6]
      * Output 2:
-     *  [4, 2]
-     *
+     * [4, 2]
+     * <p>
      * Example Explanation:
      * Explanation 1:
-     *  The subarray of A from index 1 to 3 is [3, 2, 6].
+     * The subarray of A from index 1 to 3 is [3, 2, 6].
      * Explanation 2:
-     *  The subarray of A from index 0 to 1 is [4, 2].
+     * The subarray of A from index 0 to 1 is [4, 2].
      */
     public static List<Integer> subArrayInRange(List<Integer> input, int start, int end) {
         List<Integer> result = new ArrayList<>();
-        if(start == end){
+        if (start == end) {
             result.add(input.get(start));
             return result;
         }
@@ -85,51 +86,52 @@ public class SubArrays {
         }
         return result;
     }
-/*
-Q. Generate all subarrays
 
-Problem Description
+    /*
+    Q. Generate all subarrays
 
-You are given an array A of N integers.
-Return a 2D array consisting of all the subarrays of the array
+    Problem Description
 
-Note : The order of the subarrays in the resulting 2D array does not matter.
+    You are given an array A of N integers.
+    Return a 2D array consisting of all the subarrays of the array
 
-Problem Constraints
+    Note : The order of the subarrays in the resulting 2D array does not matter.
 
-1 <= N <= 100
-1 <= A[i] <= 105
+    Problem Constraints
 
-Input Format
+    1 <= N <= 100
+    1 <= A[i] <= 105
 
-First argument A is an array of integers.
+    Input Format
 
-Output Format
+    First argument A is an array of integers.
 
-Return a 2D array of integers in any order.
+    Output Format
 
-Example Input
+    Return a 2D array of integers in any order.
 
-Input 1:
-A = [1, 2, 3]
-Input 2:
-A = [5, 2, 1, 4]
+    Example Input
 
-Example Output
+    Input 1:
+    A = [1, 2, 3]
+    Input 2:
+    A = [5, 2, 1, 4]
 
-Output 1:
-[[1], [1, 2], [1, 2, 3], [2], [2, 3], [3]]
-Output 2:
-[[1 ], [1 4 ], [2 ], [2 1 ], [2 1 4 ], [4 ], [5 ], [5 2 ], [5 2 1 ], [5 2 1 4 ] ]
+    Example Output
+
+    Output 1:
+    [[1], [1, 2], [1, 2, 3], [2], [2, 3], [3]]
+    Output 2:
+    [[1 ], [1 4 ], [2 ], [2 1 ], [2 1 4 ], [4 ], [5 ], [5 2 ], [5 2 1 ], [5 2 1 4 ] ]
 
 
-Example Explanation
+    Example Explanation
 
-For Input 1:
-All the subarrays of the array are returned. There are a total of 6 subarrays.
-For Input 2:
-All the subarrays of the array are returned. There are a total of 10 subarrays.
- */
+    For Input 1:
+    All the subarrays of the array are returned. There are a total of 6 subarrays.
+    For Input 2:
+    All the subarrays of the array are returned. There are a total of 10 subarrays.
+     */
     public static List<List<Integer>> generateAllSubArrays(List<Integer> input) {
         List<List<Integer>> subArrays = new ArrayList<>();
         for (int i = 0; i < input.size(); i++) {
@@ -141,28 +143,32 @@ All the subarrays of the array are returned. There are a total of 10 subarrays.
         }
         return subArrays;
     }
+
     public static int closetMinMaxSubArray(List<Integer> nums) {
         int max = nums.stream().max(Integer::compareTo).get();
         int min = nums.stream().min(Integer::compareTo).get();
-        int min_index =-1;
-        int max_index =-1;
-        int ans=nums.size();
-        if(min==max){ return 0;}
-        for (int i =nums.size()-1; i >= 0; i--) {
-            if(nums.get(i)==min){
+        int min_index = -1;
+        int max_index = -1;
+        int ans = nums.size();
+        if (min == max) {
+            return 0;
+        }
+        for (int i = nums.size() - 1; i >= 0; i--) {
+            if (nums.get(i) == min) {
                 min_index = i;
-                if(max_index !=-1){
-                    ans = Math.min(ans,max_index-min_index+1);
+                if (max_index != -1) {
+                    ans = Math.min(ans, max_index - min_index + 1);
                 }
-            } else if (nums.get(i)==max) {
-                max_index=i;
-                if(min_index !=-1){
-                    ans = Math.min(ans,min_index-max_index+1);
+            } else if (nums.get(i) == max) {
+                max_index = i;
+                if (min_index != -1) {
+                    ans = Math.min(ans, min_index - max_index + 1);
                 }
             }
         }
         return ans;
     }
+
     /*
     Leaders in an array
 
@@ -220,10 +226,10 @@ Explanation 2:
     public static List<Integer> leadersInAnArray(List<Integer> input) {
         List<Integer> leaders = new ArrayList<>();
         int n = input.size();
-        int maxRight = input.get(n-1);
+        int maxRight = input.get(n - 1);
         leaders.add(maxRight);
-        for(int i=n-2; i>=0; i--) {
-            if(input.get(i)>maxRight){
+        for (int i = n - 2; i >= 0; i--) {
+            if (input.get(i) > maxRight) {
                 maxRight = input.get(i);
                 leaders.add(maxRight);
             }
