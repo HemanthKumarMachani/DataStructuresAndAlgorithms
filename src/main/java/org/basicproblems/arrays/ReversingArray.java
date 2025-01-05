@@ -26,6 +26,7 @@ public class ReversingArray {
 
     /**
      * Reverses the entire list in place.
+     *
      * @param A The list of integers to be reversed.
      * @return The reversed list.
      * Time Complexity: O(N), where N is the size of the list.
@@ -45,9 +46,10 @@ public class ReversingArray {
 
     /**
      * Reverses the elements in the list within a specified range.
-     * @param A The list of integers to be reversed.
+     *
+     * @param A     The list of integers to be reversed.
      * @param start The starting index of the range to reverse.
-     * @param end The ending index of the range to reverse.
+     * @param end   The ending index of the range to reverse.
      * @return The list with the specified range reversed.
      * Time Complexity: O(N), where N is the size of the specified range.
      */
@@ -65,6 +67,7 @@ public class ReversingArray {
 
     /**
      * Rotates the list to the right by k positions using a brute force approach.
+     *
      * @param A The list of integers to be rotated.
      * @param k The number of positions to rotate the list.
      * @return The rotated list.
@@ -85,6 +88,7 @@ public class ReversingArray {
 
     /**
      * Rotates the list to the right by k positions using an optimized O(N) approach.
+     *
      * @param A The list of integers to be rotated.
      * @param k The number of positions to rotate the list.
      * @return The rotated list.
