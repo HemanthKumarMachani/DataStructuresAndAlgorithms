@@ -1,4 +1,4 @@
-package org.basicproblems;
+package org.basicproblems.math;
 
 import java.util.Scanner;
 

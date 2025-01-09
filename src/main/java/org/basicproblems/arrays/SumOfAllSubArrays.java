@@ -70,11 +70,12 @@ public class SumOfAllSubArrays {
     //optimized approach
     public static Long sumOfAllSubArraysOptimized(List<Integer> list) {
         long sum = 0;
-        for(int i = 0; i < list.size(); i++) {
-            sum+= (long)list.get(i) * (i+1) *(list.size()-i);
+        for (int i = 0; i < list.size(); i++) {
+            sum += (long) list.get(i) * (i + 1) * (list.size() - i);
         }
         return sum;
     }
+
     //Brute Force approach - TC: O(N2) SC: O(1)
     public static Long sumOfAllSubArrays(List<Integer> input) {
         long totalSum = 0L;

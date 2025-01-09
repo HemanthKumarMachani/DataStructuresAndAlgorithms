@@ -1,4 +1,4 @@
-package org.basicproblems;
+package org.basicproblems.strings;
 
 public class SpecialSubsequenceAG {
     public static void main(String[] args) {

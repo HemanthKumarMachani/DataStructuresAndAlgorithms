@@ -1,4 +1,4 @@
-package org.basicproblems;
+package org.basicproblems.math;
 
 /**
  * Problem Description:
