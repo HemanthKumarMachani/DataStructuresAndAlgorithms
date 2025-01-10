@@ -58,11 +58,11 @@ Hence, the answer is 0.
 
 public class MaxSumOfASubArray {
     public static void main(String[] args) {
-    List<Integer> list = Arrays.asList(4,-2,8);
-    int resultUsingCarry = maxSumOfSubArrayUsingCarryForward(list);
-    System.out.println("resultUsingCarry: "+resultUsingCarry);
-    int resultUsingPrefixSum = maxSumOfSubArrayUsingPrefixSum(list);
-    System.out.println("resultUsingPrefixSum: "+resultUsingPrefixSum);
+        List<Integer> list = Arrays.asList(4, -2, 8);
+        int resultUsingCarry = maxSumOfSubArrayUsingCarryForward(list);
+        System.out.println("resultUsingCarry: " + resultUsingCarry);
+        int resultUsingPrefixSum = maxSumOfSubArrayUsingPrefixSum(list);
+        System.out.println("resultUsingPrefixSum: " + resultUsingPrefixSum);
     }
 
     //TC - O(N2) SC - O(N)
