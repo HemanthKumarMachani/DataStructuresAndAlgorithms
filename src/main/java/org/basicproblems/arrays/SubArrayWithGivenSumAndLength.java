@@ -89,6 +89,7 @@ public class SubArrayWithGivenSumAndLength {
         int res = solve(list, 2, 15);
         System.out.println("res: " + res);
         System.out.println("subArrayWithSumAndLength: "+ findSubArrayWithGivenSumAndLength(list,3,21));
+        System.out.println("Diff Sliding: "+ findSubArrayWithGivenSumAndLengthDiffSliding(list,3,21));
     }
 
     public static int solve(List<Integer> A, int B, int C) {
@@ -143,6 +144,33 @@ public class SubArrayWithGivenSumAndLength {
             end++;
         }
 
+        return result;
+    }
+    //different version
+    public static List<Integer> findSubArrayWithGivenSumAndLengthDiffSliding(List<Integer> A, int length, int sumValue) {
+        int n = A.size();
+        int currentSum = 0;
+        List<Integer> result = new ArrayList<>();
+        if(n<2){
+            result.add(A.getFirst());
+            return result;
+        }
+
+        for(int i=0; i<length; i++){
+            currentSum += A.get(i);
+        }
+        int start =0; int end =length;
+        while(end < n){
+            int incoming = A.get(end);
+            int outgoing = A.get(start);
+            //currentSum = currentSum+ incoming - outgoing;
+            if(currentSum == sumValue){
+                result = A.subList(start, end);
+            }
+            currentSum = currentSum+ incoming - outgoing;
+            start++;
+            end++;
+        }
         return result;
     }
 }
