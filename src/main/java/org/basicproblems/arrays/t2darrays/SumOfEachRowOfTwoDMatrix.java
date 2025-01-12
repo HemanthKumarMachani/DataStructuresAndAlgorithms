@@ -24,9 +24,9 @@ public class SumOfEachRowOfTwoDMatrix {
 
     public static List<Integer> sumOfEachColumnOfTwoDMatrix(List<List<Integer>> matrix) {
         List<Integer> result = new ArrayList<>();
-        for(int j=0; j<matrix.getFirst().size(); j++){
+        for(int j=0; j<matrix.get(j).size(); j++){
             int sum =0;
-            for(int i=0; i<matrix.getFirst().size(); i++){
+            for(int i=0; i<matrix.get(i).size(); i++){
                 sum += matrix.get(i).get(j);
             }
             result.add(sum);
