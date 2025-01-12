@@ -1,6 +1,5 @@
 package org.basicproblems.arrays;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -81,14 +80,15 @@ There are no such subarray.
 
 
  */
-public class NumOfSubArrays {
+public class SubArrayWithGivenSumAndLength {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 12, 8, -11, 5);
-        int result = solve(list,3,21);
-        System.out.println("result: "+result);
-        int res = solve(list,2,15);
-        System.out.println("res: "+res);
+        int result = solve(list, 3, 21);
+        System.out.println("result: " + result);
+        int res = solve(list, 2, 15);
+        System.out.println("res: " + res);
     }
+
     public static int solve(List<Integer> A, int B, int C) {
         int n = A.size();
         int start = 0;  // Left pointer
