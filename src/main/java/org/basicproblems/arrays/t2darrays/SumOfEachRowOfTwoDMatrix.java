@@ -18,5 +18,19 @@ public class SumOfEachRowOfTwoDMatrix {
             }
             System.out.print(sum+" ");
         }
+        System.out.println();
+        System.out.println("sumOfEachColumnOfTwoDMatrix: "+ sumOfEachColumnOfTwoDMatrix(matrix));
+    }
+
+    public static List<Integer> sumOfEachColumnOfTwoDMatrix(List<List<Integer>> matrix) {
+        List<Integer> result = new ArrayList<>();
+        for(int j=0; j<matrix.getFirst().size(); j++){
+            int sum =0;
+            for(int i=0; i<matrix.getFirst().size(); i++){
+                sum += matrix.get(i).get(j);
+            }
+            result.add(sum);
+        }
+        return result;
     }
 }
