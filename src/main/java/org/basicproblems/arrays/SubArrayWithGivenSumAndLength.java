@@ -88,8 +88,8 @@ public class SubArrayWithGivenSumAndLength {
         System.out.println("result: " + result);
         int res = solve(list, 2, 15);
         System.out.println("res: " + res);
-        System.out.println("subArrayWithSumAndLength: "+ findSubArrayWithGivenSumAndLength(list,3,21));
-        System.out.println("Diff Sliding: "+ findSubArrayWithGivenSumAndLengthDiffSliding(list,3,21));
+        System.out.println("subArrayWithSumAndLength: " + findSubArrayWithGivenSumAndLength(list, 3, 21));
+        System.out.println("Diff Sliding: " + findSubArrayWithGivenSumAndLengthDiffSliding(list, 3, 21));
     }
 
     public static int solve(List<Integer> A, int B, int C) {
@@ -120,54 +120,57 @@ public class SubArrayWithGivenSumAndLength {
 
         return 0;  // No subarray found
     }
+
     //return subarray instead of 1 or 0
     public static List<Integer> findSubArrayWithGivenSumAndLength(List<Integer> A, int B, int C) {
         int n = A.size();
         int start = 0;
-        int end =0;
+        int end = 0;
         int sum = 0;
-        int currentLeft=-1;
-        int currentRight=-1;
+        int currentLeft = -1;
+        int currentRight = -1;
         List<Integer> result = new ArrayList<>();
         while (end < n) {
-            sum +=A.get(end);
+            sum += A.get(end);
             if (end - start + 1 > B) {
                 sum -= A.get(start);
                 start++;
             }
-            if(sum == C && end - start + 1 == B) {
+            if (sum == C && end - start + 1 == B) {
                 //result = A.subList(start, end);
                 currentLeft = start;
                 currentRight = end;
-                result = A.subList(currentLeft, currentRight+1); //as the toIndex is exclusive
+                result = A.subList(currentLeft, currentRight + 1); //as the toIndex is exclusive
             }
             end++;
         }
 
         return result;
     }
+
     //different version
     public static List<Integer> findSubArrayWithGivenSumAndLengthDiffSliding(List<Integer> A, int length, int sumValue) {
         int n = A.size();
         int currentSum = 0;
         List<Integer> result = new ArrayList<>();
-        if(n<2){
+        if (n < 2) {
             result.add(A.getFirst());
             return result;
         }
 
-        for(int i=0; i<length; i++){
+        for (int i = 0; i < length; i++) {
             currentSum += A.get(i);
         }
-        int start =0; int end =length;
-        while(end < n){
+        int start = 0;
+        int end = length;
+        while (end < n) {
             int incoming = A.get(end);
             int outgoing = A.get(start);
             //currentSum = currentSum+ incoming - outgoing;
-            if(currentSum == sumValue){
+            if (currentSum == sumValue) {
                 result = A.subList(start, end);
             }
-            currentSum = currentSum+ incoming - outgoing;
+            currentSum = currentSum + incoming - outgoing;
             start++;
             end++;
         }
