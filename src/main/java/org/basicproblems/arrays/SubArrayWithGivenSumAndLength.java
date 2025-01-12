@@ -1,5 +1,6 @@
 package org.basicproblems.arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -87,6 +88,7 @@ public class SubArrayWithGivenSumAndLength {
         System.out.println("result: " + result);
         int res = solve(list, 2, 15);
         System.out.println("res: " + res);
+        System.out.println("subArrayWithSumAndLength: "+ findSubArrayWithGivenSumAndLength(list,3,21));
     }
 
     public static int solve(List<Integer> A, int B, int C) {
@@ -116,5 +118,31 @@ public class SubArrayWithGivenSumAndLength {
         }
 
         return 0;  // No subarray found
+    }
+    //return subarray instead of 1 or 0
+    public static List<Integer> findSubArrayWithGivenSumAndLength(List<Integer> A, int B, int C) {
+        int n = A.size();
+        int start = 0;
+        int end =0;
+        int sum = 0;
+        int currentLeft=-1;
+        int currentRight=-1;
+        List<Integer> result = new ArrayList<>();
+        while (end < n) {
+            sum +=A.get(end);
+            if (end - start + 1 > B) {
+                sum -= A.get(start);
+                start++;
+            }
+            if(sum == C && end - start + 1 == B) {
+                //result = A.subList(start, end);
+                currentLeft = start;
+                currentRight = end;
+                result = A.subList(currentLeft, currentRight+1); //as the toIndex is exclusive
+            }
+            end++;
+        }
+
+        return result;
     }
 }
