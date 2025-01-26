@@ -28,6 +28,12 @@ public class SumOfEachRowOfTwoDMatrix {
         System.out.println("sumOfEachColumnOfTwoDMatrix: " + sumOfEachColumnOfTwoDMatrix(matrix));
         printPrincipleDiagonal(arrMatix);
         printAntiDiagonal(arrMatix);
+        int[][] recMatix = {
+                {1, 3, 7, 8, 4},
+                {2, 0, 1, 8, 2},
+                {9, 1, 3, 6, 7},
+        };
+        printingAllDiagonals(recMatix);
     }
 
     public static List<Integer> sumOfEachColumnOfTwoDMatrix(List<List<Integer>> matrix) {
@@ -49,12 +55,41 @@ public class SumOfEachRowOfTwoDMatrix {
         }
         System.out.println();
     }
+
     public static void printAntiDiagonal(int[][] matrix) {
         System.out.println("Printing anti diagonal: ");
         int n = matrix.length;
-        for(int i=0; i<n;i++){
-            System.out.print(matrix[i][n-i-1] +" ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(matrix[i][n - i - 1] + " ");
         }
         System.out.println();
+    }
+
+    /*
+    Printing all the diagonals of a rectangular matrix from left to right (bottom to top direction)
+    {
+    [1,3,7,8,4]
+    [2,0,1,8,2]
+    [9,1,3,6,7]
+    }
+     */
+    public static void printingAllDiagonals(int[][] matrix) {
+        System.out.println("Printing all diagonals: ");
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int i = n - 1, j = 0;
+        int row = i, col = 0;
+        while (col < m) {
+            i = row;
+            j = col;
+            while (i < n && j < m) {
+                System.out.print(matrix[i][j] + " ");
+                i++;
+                j++;
+            }
+            System.out.println();
+            if (row > 0) row--;
+            else col++;
+        }
     }
 }
