@@ -27,6 +27,7 @@ public class SumOfEachRowOfTwoDMatrix {
         System.out.println();
         System.out.println("sumOfEachColumnOfTwoDMatrix: " + sumOfEachColumnOfTwoDMatrix(matrix));
         printPrincipleDiagonal(arrMatix);
+        printAntiDiagonal(arrMatix);
     }
 
     public static List<Integer> sumOfEachColumnOfTwoDMatrix(List<List<Integer>> matrix) {
@@ -46,5 +47,14 @@ public class SumOfEachRowOfTwoDMatrix {
         for (int i = 0; i < matrix.length; i++) {
             System.out.print(matrix[i][i] + " ");
         }
+        System.out.println();
+    }
+    public static void printAntiDiagonal(int[][] matrix) {
+        System.out.println("Printing anti diagonal: ");
+        int n = matrix.length;
+        for(int i=0; i<n;i++){
+            System.out.print(matrix[i][n-i-1] +" ");
+        }
+        System.out.println();
     }
 }
