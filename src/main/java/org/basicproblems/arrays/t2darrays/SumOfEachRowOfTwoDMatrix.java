@@ -35,10 +35,10 @@ public class SumOfEachRowOfTwoDMatrix {
         };
         printingAllDiagonals(recMatix);
         List<List<Integer>> recMatrixList = new ArrayList<>();
-        recMatrixList.add(Arrays.asList(1, 3, 7, 8,4));
+        recMatrixList.add(Arrays.asList(1, 3, 7, 8, 4));
         recMatrixList.add(Arrays.asList(2, 0, 1, 8, 2));
         recMatrixList.add(Arrays.asList(9, 1, 3, 6, 7));
-        System.out.println("recMatrixList: \n"+recMatrixList);
+        System.out.println("recMatrixList: \n" + recMatrixList);
         printingAllDiagonalsFromRightToLeft(recMatrixList);
     }
 
@@ -98,6 +98,7 @@ public class SumOfEachRowOfTwoDMatrix {
             else col++;
         }
     }
+
     // Printing all diagonals from right to left (bottom to top)
     public static void printingAllDiagonalsFromRightToLeft(List<List<Integer>> matrix) {
         if (matrix == null || matrix.isEmpty()) {
