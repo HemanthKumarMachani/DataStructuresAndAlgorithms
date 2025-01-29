@@ -98,6 +98,7 @@ public class SumOfEachRowOfTwoDMatrix {
             else col++;
         }
     }
+
     // Printing all diagonals from right to left (bottom to top)
     public static void printingAllDiagonalsFromRightToLeft(List<List<Integer>> matrix) {
         if (matrix == null || matrix.isEmpty()) {
