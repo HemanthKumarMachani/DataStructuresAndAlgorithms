@@ -5,6 +5,14 @@ public class Fibonacci {
         //System.out.println(fibonacciIterative(5));
         int result = fibonacciIterative(9);
         System.out.println(result);
+        int recResult = fibonacciRecursive(9);
+        System.out.println(recResult);
+    }
+    public static int fibonacciRecursive(int n) {
+        if(n <= 1) return n;
+        int last = fibonacciRecursive(n - 1);
+        int secondLast = fibonacciRecursive(n-2);
+        return last + secondLast;
     }
     public static int fibonacciIterative(int n) {
         if(n == 0) {
