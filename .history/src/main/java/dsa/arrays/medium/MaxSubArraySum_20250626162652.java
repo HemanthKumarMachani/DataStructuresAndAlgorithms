@@ -1,7 +1,5 @@
 package dsa.arrays.medium;
 
-import java.util.Arrays;
-
 public class MaxSubArraySum {
     public static void main(String[] args) {
         //arr = [-2,1,-3,4,-1,2,1,-5,4] 
@@ -27,7 +25,6 @@ public class MaxSubArraySum {
         System.out.println("maxSumBFInput5: "+ maxSubArraySumKadanesAlgo(input5));
         System.out.println("maxSumBFInput6: "+ maxSubArraySumKadanesAlgo(input6));
         System.out.println("maxSumBFInput7: "+ maxSubArraySumKadanesAlgo(input7));
-        System.out.println("maxSumKadanesAlgo results: "+Arrays.toString(printSubArrayWithMaxSum(input1)) + " with sum " + maxSubArraySumKadanesAlgo(input1));
 
     }
     //Brute force approach TC: O(N^2) SC: O(1)
@@ -54,24 +51,5 @@ public class MaxSubArraySum {
         }
         return maxSum;
     }
-    //Return subarray with maximum sum
-        public static int [] printSubArrayWithMaxSum(int [] input){
-        if(input == null || input.length == 0) return new int[0];
-        int n = input.length, sum =0, maxSum =Integer.MIN_VALUE, start=0, startIndex=0, endIndex=0;
-        for(int index =0; index<n; index++){
-        if(sum ==0) start =index;
-        sum += input[index];
-        //maxSum = Math.max(sum,maxSum);
-        if(sum > maxSum){
-            maxSum = sum;
-            startIndex = start;
-            endIndex = index;
-    }
-        if(sum < 0){
-        sum =0;
-        }
-    }
-    return Arrays.copyOfRange(input, startIndex, endIndex);
-    }
-
+    
 }
