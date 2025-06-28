@@ -60,10 +60,12 @@ public class AlternatingNumber {
         int [] input2 = {-2,-2,4,5};
         int [] input3 = {-1};
         int [] input4 = {0};
+        int [] input5 = {1,1,1,1,1,1};
         System.out.println("Input 1: " + Arrays.toString(alternateNumbers(input1)));
         System.out.println("Input 2: " + Arrays.toString(alternateNumbers(input2)));
         System.out.println("Input 3: " + Arrays.toString(alternateNumbers(input3)));
         System.out.println("Input 4: " + Arrays.toString(alternateNumbers(input4)));
+        System.out.println("Input 5: " + Arrays.toString(alternateNumbers(input5)));
 
     }
     public static int[] alternateNumbers(int []a) {
