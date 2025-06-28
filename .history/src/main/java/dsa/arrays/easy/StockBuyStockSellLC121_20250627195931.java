@@ -28,7 +28,7 @@ Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
  
  */
-public class StockBuyStockSellLC121 {
+public class StockBuyStockSell {
     public static void main(String[] args) {
         int[] input1 = {7, 1, 5, 3, 6, 4};
         int[] input2 = {7, 6, 4, 3, 1};
