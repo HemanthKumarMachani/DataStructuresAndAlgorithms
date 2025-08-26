@@ -1,4 +1,4 @@
-package dsa.arrays.easy;
+package dsa.arrays.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +56,7 @@ Sample Input 2:
 Sample Output 2:
 4 -2 5 -3
  */
-public class AlternatingNumber {
+public class AlternatingNumberLC2149 {
     public static void main(String[] args) {
         int[] input1 = { 1, 2, -4, -5 };
         int[] input2 = { -2, -2, 4, 5 };
